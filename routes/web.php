@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\authController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+
+use function PHPUnit\Framework\callback;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +22,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('auth', [authController::class, "index"]);
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
-});
+Route::get('/auth/redirect', [authController::class, "redirect"]);
 
-Route::get('/auth/callback', function () {
-    $user = Socialite::driver('google')->user();
-
-    // $user->token
-});
+Route::get('/auth/callback', [authController::class, "callback"]);
