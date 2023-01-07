@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\History;
 use App\Models\Page;
-use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class PageController extends Controller
+class ExperienceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pages.index', [
-            'title' => 'Page',
-            'pages' => Page::orderBy('title', 'asc')->get()
+        return view('dashboard.experience.index', [
+            'title' => 'Experience',
+            'pages' => Page::all(),
         ]);
     }
 
@@ -29,8 +28,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('dashboard.pages.create', [
-            'title' => 'Create page',
+        return view('dashboard.experience.create', [
+            'title' => 'Add Experience'
         ]);
     }
 
@@ -42,13 +41,7 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        $page = $request->validate([
-            'title' => 'required|max:225',
-            'body' => 'required'
-        ]);
-
-        Page::create($page);
-        return redirect('/dashboard/page/')->with('success', 'Data Berhasil ditambah');
+        //
     }
 
     /**
@@ -68,12 +61,9 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit($id)
     {
-        return view('dashboard.pages.edit', [
-            'title' => 'Edit',
-            'page' => $page
-        ]);
+        //
     }
 
     /**
@@ -85,13 +75,7 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $page = $request->validate([
-            'title' => 'required|max:225',
-            'body' => 'required'
-        ]);
-
-        Page::where('id', $id)->update($page);
-        return redirect('/dashboard/page/')->with('success', 'Your page has been updated');
+        //
     }
 
     /**
@@ -102,7 +86,6 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        Page::where('id', $id)->delete();
-        return redirect('dashboard/page')->with('success', 'Your page has been deleted');
+        //
     }
 }

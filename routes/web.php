@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\authController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,14 +36,10 @@ Route::get('/auth/logout', [authController::class, "logout"])->middleware('auth'
 
 
 
-Route::prefix('dashboard')->middleware('auth')->group(
+Route::prefix('/dashboard')->middleware('auth')->group(
     function () {
-        Route::get('/', function () {
-            return view("dashboard.index", [
-                'title' => 'Home'
-            ]);
-        });
-
+        Route::get('/', [PageController::class, 'index']);
         Route::resource('/page', PageController::class);
+        Route::resource('/experience', ExperienceController::class);
     }
 );

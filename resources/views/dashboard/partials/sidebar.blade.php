@@ -9,9 +9,9 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('/dashboard/page') ? 'active' : '' }}" href="/dashboard/page">
+        <a class="nav-link {{ Request::is('/dashboard/experience*') ? 'active' : '' }}" href="/dashboard/experience">
           <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-          <span class="menu-title">Page Management</span>
+          <span class="menu-title">Experience Management</span>
         </a>
       </li>
     </ul>

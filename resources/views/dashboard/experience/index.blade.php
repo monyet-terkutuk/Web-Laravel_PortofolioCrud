@@ -2,7 +2,7 @@
 
 @section('container')
 
-    <p class="card-title">Pages Management</p>
+    <p class="card-title">Experiencce Management</p>
 
     @if (Session::has('success'))
     <div class="alert alert-success">
@@ -10,7 +10,7 @@
     </div>
     @endif
 
-    <a href="{{ route('page.create') }}" class="btn btn-primary text-white">+ Add New Page</a>
+    <a href="{{ route('experience.create') }}" class="btn btn-primary text-white">+ Add New Experience</a>
     <div class="table-responsive">
 <table class="table table-striped table-hover mt-3">
     <thead>
