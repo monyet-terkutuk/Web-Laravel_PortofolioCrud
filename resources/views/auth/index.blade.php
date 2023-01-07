@@ -16,6 +16,21 @@
                     {{ Session::get('error') }}
                 </div>
             @endif
+
+            {{-- ada dua jenis pemanggilan session --}}
+
+            {{-- @if (Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif --}}
+
+            @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+            </div>
+@endif
+
             <h1>Login</h1>
             <p>Silakan login dengan Akun Google yang kamu punya</p>
             <a href='/auth/redirect/' class="btn border border-primary"><img width="20px"
