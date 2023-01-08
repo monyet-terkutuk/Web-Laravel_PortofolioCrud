@@ -1,10 +1,11 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
+
       <li class="nav-item">
         <a class="nav-link {{ Request::is('/dashboard*') ? 'active' : '' }}" href="/dashboard">
           <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-          <span class="menu-title">Documentation</span>
+          <span class="menu-title">Page Management</span>
         </a>
       </li>
 
@@ -14,6 +15,14 @@
           <span class="menu-title">Experience Management</span>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('/dashboard/education*') ? 'active' : '' }}" href="/dashboard/education">
+          <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+          <span class="menu-title">Education Management</span>
+        </a>
+      </li>
+      
     </ul>
   </nav>
   <!-- partial -->

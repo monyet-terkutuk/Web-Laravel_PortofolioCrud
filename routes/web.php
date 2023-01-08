@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\authController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,5 +42,6 @@ Route::prefix('/dashboard')->middleware('auth')->group(
         Route::get('/', [PageController::class, 'index']);
         Route::resource('/page', PageController::class);
         Route::resource('/experience', ExperienceController::class);
+        Route::resource('/education', EducationController::class);
     }
 );

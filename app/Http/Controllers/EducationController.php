@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\History;
 use Illuminate\Http\Request;
 
-class ExperienceController extends Controller
+class EducationController extends Controller
 {
 
     function __construct()
@@ -20,9 +20,9 @@ class ExperienceController extends Controller
     public function index()
     {
 
-        return view('dashboard.experience.index', [
+        return view('dashboard.education.index', [
             'title' => 'Experience',
-            'histories' => History::where('type', 'experience')->orderBy('end_date', 'desc')->get()
+            'histories' => History::where('type', 'education')->orderBy('end_date', 'desc')->get()
         ]);
     }
 
@@ -33,8 +33,9 @@ class ExperienceController extends Controller
      */
     public function create()
     {
-        return view('dashboard.experience.create', [
-            'title' => 'Add Experience'
+        return view('dashboard.education.create', [
+            'title' => 'Add Education',
+            'history' => ''
         ]);
     }
 
@@ -46,17 +47,23 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        $history = $request->validate([
+        $history = ([
             'title' => 'required|max:225',
-            'body' => 'required',
             'info_st' => 'required',
+            'info_nd' => 'required',
+            'info_rd' => 'required',
             'start_date' => 'required',
             'end_date' => 'nullable',
-            'type' => 'experience'
+            'type' => 'education'
         ]);
 
-        History::create($history);
-        return redirect('/dashboard/experience/')->with('success', 'Data Berhasil ditambah');
+        $validateData = $request->validate($history);
+
+        $validateData['type'] = 'education';
+
+
+        History::create($validateData);
+        return redirect('/dashboard/education/')->with('success', 'Data Berhasil ditambah');
     }
 
     /**
@@ -78,8 +85,8 @@ class ExperienceController extends Controller
      */
     public function edit($id)
     {
-        $data = History::where('id', $id)->where('type', 'experience')->first();
-        return view('dashboard.experience.edit', [
+        $data = History::where('id', $id)->where('type', 'education')->first();
+        return view('dashboard.education.edit', [
             'title' => 'Edit',
             'history' => $data
         ]);
@@ -97,15 +104,16 @@ class ExperienceController extends Controller
 
         $history = $request->validate([
             'title' => 'required|max:225',
-            'body' => 'required',
             'info_st' => 'required',
+            'info_nd' => 'required',
+            'info_rd' => 'required',
             'start_date' => 'required',
             'end_date' => 'nullable',
-            'type' => 'experience'
+            'type' => 'education'
         ]);
 
-        History::where('id', $id)->where('type', 'experience')->update($history);
-        return redirect('/dashboard/experience/')->with('success', 'Your page has been updated');
+        History::where('id', $id)->where('type', 'education')->update($history);
+        return redirect('/dashboard/education/')->with('success', 'Your page has been updated');
     }
 
     /**
