@@ -44,7 +44,7 @@ class authController extends Controller
             );
 
             Auth::login($user);
-            return redirect('dashboard');
+            return redirect('dashboard/home');
         } else {
             return redirect('auth')->with('error', 'Maaf anda tidak di ijinkan masuk!');
         }

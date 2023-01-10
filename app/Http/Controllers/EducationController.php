@@ -124,7 +124,7 @@ class EducationController extends Controller
      */
     public function destroy($id)
     {
-        History::where('id', $id)->where('type', 'experience')->delete();
-        return redirect('dashboard/experience/')->with('success', 'Your data has been deleted');
+        History::where('id', $id)->where('type', 'education')->delete();
+        return redirect('dashboard/education/')->with('success', 'Your data has been deleted');
     }
 }

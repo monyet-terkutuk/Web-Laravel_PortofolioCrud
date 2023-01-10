@@ -65,6 +65,6 @@
         </div>
 
 
-        <button type="submit" class="btn btn-warning text-white">Create</button>
+        <button type="submit" class="btn btn-warning text-white">Update</button>
     </form>
 @endsection

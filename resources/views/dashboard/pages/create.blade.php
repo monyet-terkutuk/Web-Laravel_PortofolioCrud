@@ -20,7 +20,7 @@
 
         <div class="mb-3">
           <label for="body" class="form-label">Body</label>
-          <textarea class="form-control summernote @error('title') is-invalid @enderror" rows="5" name="body" id="body">{{ old('body') }}</textarea>
+          <textarea class="form-control summernote @error('body') is-invalid @enderror" rows="5" name="body" id="body">{{ old('body') }}</textarea>
         
           @error('body')
               <div class="invalid-feedback">

@@ -4,6 +4,7 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -39,9 +40,16 @@ Route::get('/auth/logout', [authController::class, "logout"])->middleware('auth'
 
 Route::prefix('/dashboard')->middleware('auth')->group(
     function () {
-        Route::get('/', [PageController::class, 'index']);
+        Route::get('/home', function () {
+            return view("dashboard.index", [
+                'title' => 'Home'
+            ]);
+        });
+        // Route::get('/', [PageController::class, 'index']);
         Route::resource('/page', PageController::class);
         Route::resource('/experience', ExperienceController::class);
         Route::resource('/education', EducationController::class);
+        Route::get('/skill', [SkillController::class, "index"])->name('skill.index');
+        Route::post('/skill', [SkillController::class, "update"])->name('skill.update');
     }
 );
