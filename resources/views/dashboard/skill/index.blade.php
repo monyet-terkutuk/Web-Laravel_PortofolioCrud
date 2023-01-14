@@ -1,5 +1,6 @@
 @extends('dashboard.partials.main')
 
+
 @section('container')
     <p class="card-title">Create New Skill</p>
 
@@ -53,4 +54,7 @@
         });
     </script>
     @endpush
+
+
+
 @endsection

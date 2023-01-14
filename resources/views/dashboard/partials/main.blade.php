@@ -52,12 +52,12 @@ text-decoration: none;
   
 
     {{-- Navbar --}}
-    @include('dashboard.partials.navbar')
+        @include('dashboard.partials.navbar')
 
 
 
 
-    <div class="container-fluid page-body-wrapper">
+        <div class="container-fluid page-body-wrapper">
       
 
         {{-- sidebar --}}
@@ -113,7 +113,7 @@ text-decoration: none;
   <!-- End custom js for this page-->
   
   <script src="{{ asset('admin') }}/js/jquery.cookie.js" type="text/javascript"></script>
-  // <!-- place this script before closing body tag --> 
+  <!-- place this script before closing body tag --> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
 
@@ -125,7 +125,7 @@ text-decoration: none;
       });
       </script>
       
-      // <!-- insert into your last tag body -->
+      <!-- insert into your last tag body -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
       

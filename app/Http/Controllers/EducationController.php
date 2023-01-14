@@ -21,7 +21,7 @@ class EducationController extends Controller
     {
 
         return view('dashboard.education.index', [
-            'title' => 'Experience',
+            'title' => 'Education',
             'histories' => History::where('type', 'education')->orderBy('end_date', 'desc')->get()
         ]);
     }

@@ -4,6 +4,8 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PageSettingController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +51,14 @@ Route::prefix('/dashboard')->middleware('auth')->group(
         Route::resource('/page', PageController::class);
         Route::resource('/experience', ExperienceController::class);
         Route::resource('/education', EducationController::class);
+        // Route Skill
         Route::get('/skill', [SkillController::class, "index"])->name('skill.index');
         Route::post('/skill', [SkillController::class, "update"])->name('skill.update');
+        // Route Profile
+        Route::get('/profile', [ProfileController::class, "index"])->name('profile.index');
+        Route::post('/profile', [ProfileController::class, "update"])->name('profile.update');
+        // Route Seting
+        Route::get('/setting', [PageSettingController::class, "index"])->name('setting.index');
+        Route::post('/setting', [PageSettingController::class, "update"])->name('setting.update');
     }
 );

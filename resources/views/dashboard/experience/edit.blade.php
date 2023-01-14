@@ -1,7 +1,7 @@
 @extends('dashboard.partials.main')
 
 @section('container')
-    <p class="card-title">Create New Page</p>
+    <p class="card-title">Edit Experience</p>
     <a href="/dashboard/experience" class="btn btn-info text-white ">Back</a>
 
     <form class="mb-3 col-lg-12 mt-3" action="{{ route('experience.update', $history->id) }}" method="post">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="info_st" class="form-label">Company Name</label>
+          <label for="info_st" class="form-label"><i class="mdi mdi-city menu-icon"></i> Company Name</label>
           <input type="text" class="form-control form-control-sm @error('info_st') is-invalid @enderror"  name="info_st" id="info_st" placeholder="Company Name" value="{{ old('info_st', $history->info_st) }}" autofocus>
           
           @error('info_st')
@@ -42,7 +42,7 @@
 
 
         <div class="mb-3">
-          <label for="body" class="form-label">Description</label>
+          <label for="body" class="form-label"><i class="mdi mdi-border-color menu-icon"></i> Description</label>
           <textarea class="form-control summernote @error('title') is-invalid @enderror" rows="5" name="body" id="body">{{ old('body', $history->body) }}</textarea>
         
           @error('body')

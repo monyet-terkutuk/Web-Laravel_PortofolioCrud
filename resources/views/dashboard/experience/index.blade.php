@@ -2,7 +2,7 @@
 
 @section('container')
 
-    <p class="card-title">Experiencce Management</p>
+    <p class="card-title">Experience Management</p>
 
     @if (Session::has('success'))
     <div class="alert alert-success">

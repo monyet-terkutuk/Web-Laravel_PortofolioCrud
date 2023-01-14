@@ -11,6 +11,7 @@
 <body class="bg-light">
     <main class="container vh-100 d-flex justify-content-center align-items-center">
         <div class="col-6 mx-auto text-center px-5 py-5 border rounded bg-white">
+
             @if (Session::has('error'))
                 <div class="alert alert-danger">
                     {{ Session::get('error') }}
@@ -29,7 +30,7 @@
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
             </div>
-@endif
+            @endif
 
             <h1>Login</h1>
             <p>Silakan login dengan Akun Google yang kamu punya</p>
